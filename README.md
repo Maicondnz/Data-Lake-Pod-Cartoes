@@ -22,10 +22,9 @@ A arquitetura do projeto está ilustrada abaixo:
 | **Ingestion** | Dados brutos coletados diretamente do sistema transacional.                                                                                                                                                          |
 | **Raw**       | Dados pré-processados que passaram por uma limpeza e validação iniciais, particionados por data e armazenados em formato Parquet. Uma tabela de controle é criada para registrar a data de processamento..                           |
 | **Curated**   | Dados refinados, deduplicados e integrados, com enriquecimento por meio da criação de variáveis customizadas alinhadas aos requisitos do negócio. Essa camada inclui uma etapa pré-book (stage) para desenvolvimento de variáveis, seguida da agregação final conforme os períodos de análise e armazenamento na camada de Book para análises avançadas e modelagem preditiva. |
-                                                                                                                 |
-
-
-
+                                                                                                                
+                                                                                                                
+                                                                                                                
 ### **Serviços Utilizados**
 
 | **Serviço**         | **Descrição**                                                                                                                                                      |
