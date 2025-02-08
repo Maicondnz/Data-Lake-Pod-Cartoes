@@ -7,12 +7,13 @@ A PoD Cartões é uma empresa de cartões de crédito que busca otimizar o uso d
 A solução utiliza serviços da AWS para ingestão, processamento e organização de dados em zonas específicas (Raw, Trusted e Curated), além de orquestração de pipelines com o **Apache Airflow**.
 
 ## **Dados**
+![dados relacionamento](imgs/date.png)
 
 
 ## **Arquitetura**
 A arquitetura do projeto está ilustrada abaixo:
 
-![Architecture](docs/Arquitetura.jpg)
+![Arquitetura](imgs/Arquitetura.png)
 
 ### **Data Lake Zonas**
 
@@ -31,7 +32,6 @@ A arquitetura do projeto está ilustrada abaixo:
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Apache Airflow**  | Orquestração de pipelines de ingestão e transformação de dados, permitindo o agendamento, monitoramento e automação dos fluxos de trabalho.                        |
 | **EMR**             | Plataforma gerenciada de Big Data que facilita a execução de processos ETL e análises distribuídas, utilizando frameworks como Spark e Hadoop.                      |
-| **PySpark**         | Ferramenta para processamento e transformação de grandes volumes de dados, empregada na limpeza, agregação e enriquecimento dos dados.                               |
 | **Glue**            | Serviço para catalogação que automatiza a descoberta dos dados armazenados no S3 para consulta e análise.                             |
 | **Athena**          | Serviço de consulta interativa que permite executar queries SQL diretamente sobre os dados armazenados no S3, facilitando análises ad hoc e geração de relatórios. |
 | **S3**              | Armazenamento escalável e durável que hospeda as zonas Raw, Trusted e Curated do Data Lake.                                                                         |
