@@ -38,6 +38,15 @@ A arquitetura do projeto está ilustrada abaixo:
 | **CloudWatch**      | Serviço de monitoramento que coleta métricas e logs da infraestrutura AWS, contribuindo para o controle de custos e desempenho.                                      |
 | **Docker**          | Plataforma de contêinerização que facilita a criação, implantação e execução de aplicações em ambientes isolados e consistentes, otimizando o desenvolvimento e a integração. |
 
+### **Bibliotecas**
+
+pandas
+pyspark
+datetime
+time
+boto3
+configparser
+os
 
 ## **DAGS**
 
