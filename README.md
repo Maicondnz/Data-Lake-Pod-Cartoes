@@ -40,13 +40,13 @@ A arquitetura do projeto está ilustrada abaixo:
 
 ### **Bibliotecas**
 
-pandas
-pyspark
-datetime
-time
-boto3
-configparser
-os
+|pandas|
+|pyspark|
+|datetime|
+|time|
+|boto3|
+|configparser|
+|os|
 
 ## **DAGS**
 
