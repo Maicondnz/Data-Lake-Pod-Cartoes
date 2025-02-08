@@ -7,7 +7,7 @@ A PoD Cartões é uma empresa de cartões de crédito que busca otimizar o uso d
 A solução utiliza serviços da AWS para ingestão, processamento e organização de dados em zonas específicas (Raw, Trusted e Curated), além de orquestração de pipelines com o **Apache Airflow**.
 
 ## **Dados**
-![dados relacionamento](imgs/dados.png)
+![dados](imgs/dados.png)
 
 
 ## **Arquitetura**
