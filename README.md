@@ -51,12 +51,18 @@ A arquitetura do projeto está ilustrada abaixo:
 ## **DAGS**
 
 ### **Ingestão**
-- 
+- Responsável pela extração de dados do SGBD e armazenamento na primeira camada do Data Lake (Ingestion).
+- A DAG é programada para executar diariamente às 05:00h, garantindo que os dados mais recentes sejam transferidos para o Data Lake.
+![dag ingestion](imgs/dag_ingestao.jpg)
+  
 
-### **Dados de Faturas**
-- **Raw Zone**: Dados brutos das faturas de clientes.
-- **Curated Zone**: Dados transformados para análises de pagamentos, atrasos e consumo.
-
-### **Book de Variáveis**
-- **Trusted Zone**: Variáveis que explicam o comportamento de pagamento no prazo, atrasos e inadimplências.
-- **Curated Zone**: Dados agregados por cliente e períodos (U1M, U3M, U6M, U12M).
+### **Processamento de dados por tabela**
+- Esta DAG inicia um cluster EMR que executa um step job para realizar o processamento dos dados por assunto (tabelas individuais).
+- Após o processamento, o cluster é finalizado automaticamente para evitar custos adicionais.
+- Programada para executar diariamente às 08:00h, mantendo os dados processados atualizados.
+![dag processamento](imgs/dag_processamento.jpg)
+### **Processamento de Book**
+- Focada na criação e atualização das tabelas stage e book de variáveis, essenciais para análises e modelos preditivos.
+- A DAG sobe um cluster EMR, executa o step job e encerra o cluster ao final do processamento.
+- Programada para rodar mensalmente, todo dia 01, às 22:00h, garantindo que os dados do book estejam preparados para análises estratégicas.
+![dag book](imgs/dag_book.jpg)
