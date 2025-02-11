@@ -53,16 +53,20 @@ A arquitetura do projeto está ilustrada abaixo:
 ### **Ingestão**
 - Responsável pela extração de dados do SGBD e armazenamento na primeira camada do Data Lake (Ingestion).
 - A DAG é programada para executar diariamente às 05:00h, garantindo que os dados mais recentes sejam transferidos para o Data Lake.
-![dag ingestion](imgs/dag_ingestao.jpg)
+  
+![dag ingestion](imgs/dag_ingestion.jpg)
   
 
 ### **Processamento de dados por tabela**
 - Esta DAG inicia um cluster EMR que executa um step job para realizar o processamento dos dados por assunto (tabelas individuais).
 - Após o processamento, o cluster é finalizado automaticamente para evitar custos adicionais.
 - Programada para executar diariamente às 08:00h, mantendo os dados processados atualizados.
+  
 ![dag processamento](imgs/dag_processamento.jpg)
+
 ### **Processamento de Book**
 - Focada na criação e atualização das tabelas stage e book de variáveis, essenciais para análises e modelos preditivos.
 - A DAG sobe um cluster EMR, executa o step job e encerra o cluster ao final do processamento.
 - Programada para rodar mensalmente, todo dia 01, às 22:00h, garantindo que os dados do book estejam preparados para análises estratégicas.
+  
 ![dag book](imgs/dag_book.jpg)
