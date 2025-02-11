@@ -54,7 +54,7 @@ A arquitetura do projeto está ilustrada abaixo:
 - Responsável pela extração de dados do SGBD e armazenamento na primeira camada do Data Lake (Ingestion).
 - A DAG é programada para executar diariamente às 05:00h, garantindo que os dados mais recentes sejam transferidos para o Data Lake.
   
-
+![dag ingestão](imgs/dag_ingestion.jpg)
   
 
 ### **Processamento de dados por tabela**
