@@ -49,6 +49,7 @@ A arquitetura do projeto está ilustrada abaixo:
 - os
 
 ## 📌**DAGS**
+🔹 **Todas as Dags são programadas para enviar um e-mail em caso de falha nos processos.**
 
 ### **Ingestão**
 - Responsável pela extração de dados do SGBD e armazenamento na primeira camada do Data Lake (Ingestion).
