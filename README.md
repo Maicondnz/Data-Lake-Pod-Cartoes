@@ -105,12 +105,56 @@ Na etapa 'Stage', foram criadas as seguintes variáveis para explicar o comporta
 
 ### **BOOK**
 Na criação do 'Book', os valores numéricos foram agregados por categoria e janelas de tempo, com a data de referência definida como **'2024-02-01'**. A análise utiliza uma visão mensal para os períodos: **U1M, U3M, U6M, U9M e U12M** (últimos 1, 3, 6, 9 e 12 meses).
+Foram criadas 665 variáveis.
 
-As seguintes agregações foram realizadas:
-- **Soma (SUM):** Total acumulado das métricas para cada categoria no período.  
-- **Média (AVG):** Valor médio das métricas no período analisado.  
-- **Máximo (MAX):** Maior valor encontrado no período.  
-- **Mínimo (MIN):** Menor valor encontrado no período.
+# 📊 Visões Criadas para o Book
 
-Essas agregações permitem uma análise detalhada do comportamento dos clientes, proporcionando insights valiosos para tomadas de decisão estratégicas.
-  
+Este repositório contém a lógica para criação de variáveis e métricas relacionadas ao comportamento de pagamento dos clientes. O código processa dados de faturas e pagamentos, gerando insights valiosos para análise de risco e comportamento financeiro.
+
+---
+
+## 🔹 1. Classificação por Prazo de Pagamento (`fbc_classificacao_dias_pagamento`)  
+Define a situação do pagamento com base na data de vencimento:  
+- **`SEM_PAGAMENTO`** → Nenhum pagamento registrado  
+- **`PAGAMENTO_ATRASADO`** → Pago após o vencimento  
+- **`PAGAMENTO_NO_PRAZO`** → Pago exatamente no vencimento  
+- **`PAGAMENTO_ANTECIPADO`** → Pago antes do vencimento  
+
+## 🔹 2. Classificação por Valor Pago (`fbc_classificacao_vlr_pagamento`)  
+Agrupa os pagamentos conforme o valor pago em relação ao total da fatura:  
+- **`PAGAMENTO_INSUFICIENTE`** → Pago menos que o mínimo  
+- **`PAGAMENTO_MINIMO`** → Pago exatamente o mínimo  
+- **`PAGAMENTO_TOTAL`** → Pago o valor total da fatura  
+- **`PAGAMENTO_PARCIAL`** → Pago mais que o mínimo, mas menos que o total  
+
+## 🔹 3. Indicadores Financeiros Calculados (`fvls`)  
+Cada métrica de pagamento é analisada com base nas seguintes variáveis:  
+- 📌 **`fvl_valor_fatura`** → Valor total da fatura  
+- 📌 **`fvl_valor_pagamento_minimo`** → Valor mínimo exigido  
+- 📌 **`fvl_valor_pagamento`** → Valor efetivamente pago  
+- 📌 **`fvl_numero_dias_atraso`** → Dias de atraso  
+- 📌 **`fvl_qtd_transacao`** → Número de transações  
+- 📌 **`fvl_pct_fatura_pgto`** → Percentual da fatura paga  
+
+## 🔹 4. Janelas Temporais (`janelas`)  
+As métricas são analisadas considerando diferentes períodos históricos:  
+- 🕒 **Último mês (`flg_u1m`)**  
+- 🕒 **Últimos 3 meses (`flg_u3m`)**  
+- 🕒 **Últimos 6 meses (`flg_u6m`)**  
+- 🕒 **Últimos 9 meses (`flg_u9m`)**  
+- 🕒 **Últimos 12 meses (`flg_u12m`)**  
+
+## 🔹 5. Métricas Agregadas (`aggs`)  
+Para cada variável financeira e janela temporal, são aplicadas funções estatísticas:  
+- **`SUM`** → Soma dos valores no período  
+- **`AVG`** → Média dos valores no período  
+- **`MAX`** → Valor máximo no período  
+- **`MIN`** → Valor mínimo no período  
+
+## 🔹 6. Regras de Exclusão de Métricas  
+Para manter a coerência dos cálculos, algumas combinações não são permitidas:  
+❌ `fvl_numero_dias_atraso` **não faz sentido somar dias de atraso das faturas durante os meses** 
+❌ `fvl_qtd_transacao` **só faz sentido ser somado, ja que é 1 transação por mês**
+❌ `fvl_pct_fatura_pgto` **não faz sentido somar o percentual de fatura paga durante os meses**   
+❌ `flg_u1m` **só permite soma, ja que analisando 1 mês SUM,AVG,MAX, e MIN são os mesmos**  
+❌ `SEM_PAGAMENTO` e `PAGAMENTO_TOTAL` **não terão métricas sobre percentual pago pois gerariam uma coluna constante**  
