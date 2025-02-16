@@ -30,7 +30,7 @@ A arquitetura do projeto está ilustrada abaixo:
 | **Serviço**         | **Descrição**                                                                                                                                                      |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Apache Airflow**  | Orquestração de pipelines de ingestão e transformação de dados, permitindo o agendamento, monitoramento e automação dos fluxos de trabalho.                        |
-| **EMR**             | Plataforma gerenciada de Big Data que facilita a execução de processos ETL e análises distribuídas, utilizando frameworks como Spark e Hadoop.                      |
+| **EMR**             | Plataforma gerenciada de Big Data que faz a execução dos processos ETL e análises distribuídas, utilizando Spark                   |
 | **Glue**            | Serviço para catalogação que automatiza a descoberta dos dados armazenados no S3 para consulta e análise.                             |
 | **Athena**          | Serviço de consulta interativa que permite executar queries SQL diretamente sobre os dados armazenados no S3, facilitando análises ad hoc e geração de relatórios. |
 | **S3**              | Armazenamento escalável e durável que hospeda as zonas Raw, Trusted e Curated do Data Lake.                                                                         |
