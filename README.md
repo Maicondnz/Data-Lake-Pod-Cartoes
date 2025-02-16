@@ -70,3 +70,47 @@ A arquitetura do projeto está ilustrada abaixo:
 - Programada para rodar mensalmente, todo dia 01, às 22:00h, garantindo que os dados do book estejam preparados para análises estratégicas.
   
 ![dag book](imgs/dag_book.jpg)
+
+## **BOOK DE VARIÁVEIS**
+
+### **STAGE**
+Na etapa 'Stage', foram criadas as seguintes variáveis para explicar o comportamento de uso do cartão de crédito pelos clientes:
+
+- **Classificação de Dias de Atraso**  
+  Classificação que indica se o cliente:  
+  - Pagou em dia,  
+  - Pagou com atraso,  
+  - Não realizou o pagamento, ou  
+  - Pagou adiantado.
+
+- **Número de Dias em Atraso**  
+  - Em caso de "pagamento atrasado", indica quantos dias o cliente atrasou o pagamento.  
+  - Em caso de "não pagamento", indica há quantos dias o pagamento está atrasado.
+
+- **Classificação do Valor Pago em Relação à Fatura**  
+  Determina como o cliente pagou a fatura:  
+  - Pagamento total,  
+  - Pagamento mínimo,  
+  - Pagamento abaixo do mínimo,  
+  - Pagamento acima do mínimo, mas abaixo do total, ou  
+  - Não realizou pagamento.
+
+- **Porcentagem da Fatura Paga**  
+  Percentual pago em relação ao valor total da fatura, utilizado em casos de pagamento parcial.
+
+- **Quantidade de Transações**  
+  Número de transações realizadas pelo cliente, considerando os períodos de análise definidos após a agregação em janelas de tempo.
+
+---
+
+### **BOOK**
+Na criação do 'Book', os valores numéricos foram agregados por categoria e janelas de tempo, com a data de referência definida como **'2024-02-01'**. A análise utiliza uma visão mensal para os períodos: **U1M, U3M, U6M, U9M e U12M** (últimos 1, 3, 6, 9 e 12 meses).
+
+As seguintes agregações foram realizadas:
+- **Soma (SUM):** Total acumulado das métricas para cada categoria no período.  
+- **Média (AVG):** Valor médio das métricas no período analisado.  
+- **Máximo (MAX):** Maior valor encontrado no período.  
+- **Mínimo (MIN):** Menor valor encontrado no período.
+
+Essas agregações permitem uma análise detalhada do comportamento dos clientes, proporcionando insights valiosos para tomadas de decisão estratégicas.
+  
