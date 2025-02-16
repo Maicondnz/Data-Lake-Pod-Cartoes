@@ -29,6 +29,7 @@ A arquitetura do projeto está ilustrada abaixo:
 
 | **Serviço**         | **Descrição**                                                                                                                                                      |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **EC2**  |  Instância utilizada para executar o Apache Airflow em um ambiente Docker e a ingestão dos dados.                        |
 | **Apache Airflow**  | Orquestração de pipelines de ingestão e transformação de dados, permitindo o agendamento, monitoramento e automação dos fluxos de trabalho.                        |
 | **EMR**             | Plataforma gerenciada de Big Data que faz a execução dos processos ETL e análises distribuídas, utilizando Spark                   |
 | **Glue**            | Serviço para catalogação que automatiza a descoberta dos dados armazenados no S3 para consulta e análise.                             |
