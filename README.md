@@ -73,7 +73,7 @@ A arquitetura do projeto está ilustrada abaixo:
 
 ## 📌**BOOK DE VARIÁVEIS**
 
-##  **STAGE**
+###  **STAGE**
 Na etapa **Stage**, foram criadas variáveis para analisar o comportamento de uso do cartão de crédito pelos clientes. As principais métricas incluem:  
 
 - **Classificação de Dias de Atraso**  
@@ -84,7 +84,7 @@ Na etapa **Stage**, foram criadas variáveis para analisar o comportamento de us
 
 ---
 
-## **BOOK**  
+### **BOOK**  
 Na etapa **Book**, os valores numéricos foram agregados por classificação e janelas de tempo, utilizando **01/02/2024** como data de referência.  
 A análise segue uma visão mensal para os períodos:  
 **U1M, U3M, U6M, U9M e U12M** (últimos 1, 3, 6, 9 e 12 meses).  
