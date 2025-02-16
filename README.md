@@ -13,7 +13,7 @@ A solução utiliza serviços da AWS para ingestão, processamento e organizaç�
 ## 📌**Arquitetura**
 A arquitetura do projeto está ilustrada abaixo:
 
-
+![arquitetura](imgs/Arquitetura.png)
 
 ## 📌**Data Lake Zonas**
 
