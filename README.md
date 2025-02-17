@@ -107,8 +107,7 @@ Define o status do pagamento com base na data de vencimento:
 Agrupa os pagamentos conforme a proporção do valor pago em relação ao total da fatura:  
 
 - `PAGAMENTO_INSUFICIENTE` → Pagamento menor que o mínimo exigido  
-- `PAGAMENTO_MINIMO` → Pagamento exatamente no valor mínimo  
-- `PAGAMENTO_TOTAL` → Pagamento integral da fatura  
+- `PAGAMENTO_MINIMO` → Pagamento exatamente no valor mínimo    
 - `PAGAMENTO_PARCIAL` → Pagamento maior que o mínimo, mas menor que o total  
 
 ## 🔹 3. Indicadores Financeiros Calculados (`fvls`)  
