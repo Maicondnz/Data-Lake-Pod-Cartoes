@@ -1,10 +1,9 @@
 #importando libs
-from pyspark.sql import SparkSession
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 # Cria a sessao do Spark
-spark = SparkSession.builder.getOrCreate()
+spark
 
 # Funcao para registrar logs com timestamp
 def log():
