@@ -1,9 +1,8 @@
 # Importando Libs
-from pyspark.sql import SparkSession
 from datetime import datetime
 
 # Cria ou obtém uma sessão do Spark
-spark = SparkSession.builder.getOrCreate()
+spark
 
 # Define um timestamp para o processamento
 dt_proc = datetime.now().strftime("%Y%m%d%H%M%S")
