@@ -1,9 +1,8 @@
 # Importando Libs
-from pyspark.sql import SparkSession
 from datetime import datetime
 
 # Cria a sessao do Spark
-spark = SparkSession.builder.getOrCreate()
+spark
 
 # Variavel para controle
 dt_proc = datetime.now().strftime("%Y%m%d%H%M%S")
